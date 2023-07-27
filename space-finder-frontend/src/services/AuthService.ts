@@ -4,7 +4,7 @@ import { AuthStack } from '../../../space-finder/outputs.json';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-providers';
 
-const awsRegion = 'eu-west-1';
+const awsRegion = 'ap-south-1';
 
 Amplify.configure({
     Auth: {

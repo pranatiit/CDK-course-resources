@@ -10,7 +10,7 @@ export class DataService {
 
     private authService: AuthService;
     private s3Client: S3Client | undefined;
-    private awsRegion = 'eu-west-1';
+    private awsRegion = 'ap-south-1';
 
     constructor(authService: AuthService) {
         this.authService = authService;
@@ -53,6 +53,7 @@ export class DataService {
 
     private async uploadPublicFile(file: File){
         const credentials = await this.authService.getTemporaryCredentials();
+        console.log(credentials)
         if (!this.s3Client) {
             this.s3Client = new S3Client({
                 credentials: credentials as any,
@@ -65,6 +66,7 @@ export class DataService {
             ACL: 'public-read',
             Body: file
         });
+
         await this.s3Client.send(command);
         return `https://${command.input.Bucket}.s3.${this.awsRegion}.amazonaws.com/${command.input.Key}`
     }
