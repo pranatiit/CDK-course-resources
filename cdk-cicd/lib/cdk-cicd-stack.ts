@@ -10,7 +10,7 @@ export class CdkCicdStack extends cdk.Stack {
     const pipeline = new CodePipeline(this, 'AwesomePipeline', {
       pipelineName: 'AwesomePipeline',
       synth: new ShellStep('Synth', {
-        input: CodePipelineSource.gitHub('alexhddev/CDK-course-resources', 'cicd-practice'),
+        input: CodePipelineSource.gitHub('pranatiit/CDK-course-resources', 'main'),
         commands: [
           'cd cdk-cicd',
           'npm ci',
