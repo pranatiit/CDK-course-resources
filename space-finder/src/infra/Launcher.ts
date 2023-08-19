@@ -6,6 +6,7 @@ import { AuthStack } from "./stacks/AuthStack";
 import { UiDeploymentStack } from "./stacks/UiDeploymentStack";
 import { UiAngularStack } from "./stacks/UiAngularStack";
 import { MonitorStack } from "./stacks/MonitorStack";
+import { UiBikePartsStack } from "./stacks/UiBikePartsStack";
 
 
 
@@ -22,6 +23,7 @@ new ApiStack(app, 'ApiStack', {
     userPool: authStack.userPool
 });
 //new UiDeploymentStack(app, 'UiDeploymentStack');
-new UiAngularStack(app, 'UiAngularStack');
+//new UiAngularStack(app, 'UiAngularStack');
+new UiBikePartsStack(app, 'UiBikePartsStack');
 
 //new MonitorStack(app, 'MonitorStack')
