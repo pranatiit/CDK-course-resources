@@ -1,5 +1,5 @@
 import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib'
-import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, CfnUserPoolGroup, UserPool, UserPoolClient } from 'aws-cdk-lib/aws-cognito';
+import { CfnIdentityPool, CfnIdentityPoolRoleAttachment, CfnUserPoolGroup, UserPool, UserPoolClient, VerificationEmailStyle } from 'aws-cdk-lib/aws-cognito';
 import { CfnUserGroup } from 'aws-cdk-lib/aws-elasticache';
 import { Effect, FederatedPrincipal, PolicyStatement, Role } from 'aws-cdk-lib/aws-iam';
 import { IBucket } from 'aws-cdk-lib/aws-s3';
@@ -36,7 +36,13 @@ export class AuthStack extends Stack {
                 /*username: true,*/
                 email: true,
                 phone: true
-            }
+            },
+            userVerification: {
+              emailSubject: 'Verify your email for Hidim ToolParts Service!',
+              emailBody: 'Thanks for signing up! Your verification code is {####}',
+              emailStyle: VerificationEmailStyle.CODE,
+              smsMessage: 'Thanks for signing up to  Hidim ToolParts Service! Your verification code is {####}',
+            },
         });
 
         new CfnOutput(this, 'ToolsBuyerUserPoolId', {

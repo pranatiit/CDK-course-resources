@@ -24,6 +24,6 @@ new ApiStack(app, 'ApiStack', {
 });
 /*new UiDeploymentStack(app, 'UiDeploymentStack');
 //new UiAngularStack(app, 'UiAngularStack');*/
-//new UiBikePartsStack(app, 'UiBikePartsStack');
+new UiBikePartsStack(app, 'UiBikePartsStack');
 
 //new MonitorStack(app, 'MonitorStack')
