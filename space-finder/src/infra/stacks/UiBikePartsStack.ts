@@ -16,8 +16,8 @@ export class UiBikePartsStack extends Stack {
 
         const suffix = getSuffixFromStack(this);
 
-        const deploymentBucket = new Bucket(this, 'UiAngularDeploymentBucket', {
-            bucketName: `angular-frontend-${suffix}`
+        const deploymentBucket = new Bucket(this, 'UiToolPartsDeploymentBucket', {
+            bucketName: `toolparts-frontend-${suffix}`
         });
 
         const uiDir = join(__dirname, '..', '..', '..', '..', 'bike-parts-frontend', 'dist');

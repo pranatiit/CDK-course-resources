@@ -27,7 +27,7 @@ export class MonitorStack extends Stack {
         });
         alarmTopic.addSubscription(new LambdaSubscription(webHookLambda));
 
-        const spacesApi4xxAlarm = new Alarm(this, 'spacesApi4xxAlarm', {
+        const spacesApi4xxAlarm = new Alarm(this, 'toolPartsApi4xxAlarm', {
             metric: new Metric({
                 metricName: '4XXError',
                 namespace: 'AWS/ApiGateway',
@@ -35,12 +35,12 @@ export class MonitorStack extends Stack {
                 statistic: 'Sum',
                 unit: Unit.COUNT,
                 dimensionsMap: {
-                    "ApiName": "SpacesApi"
+                    "ApiName": "ToolPartsApi"
                 }
             }),
             evaluationPeriods: 1,
             threshold: 5,
-            alarmName: 'SpacesApi4xxAlarm'
+            alarmName: 'ToolPartsApi4xxAlarm'
         });
         const topicAction = new SnsAction(alarmTopic);
         spacesApi4xxAlarm.addAlarmAction(topicAction);

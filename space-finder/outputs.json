@@ -1,20 +1,20 @@
 {
   "DataStack": {
-    "ExportsOutputFnGetAttSpaceFinderPhotosE708E252Arn354BE01C": "arn:aws:s3:::space-finder-photos-026d4555fef8",
-    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceTable-026d4555fef8",
-    "SpaceFinderPhotosBucketName": "space-finder-photos-026d4555fef8",
-    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:ap-south-1:302131390279:table/SpaceTable-026d4555fef8"
-  },
-  "LambdaStack": {
-    "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:ap-south-1:302131390279:function:LambdaStack-SpacesLambdaA5F923A4-27we6OYhTu3x"
+    "ExportsOutputFnGetAttToolPartsPhotosAC824DF9Arn09A8ADF0": "arn:aws:s3:::tool-parts-photos-06a9b70576ba",
+    "ExportsOutputFnGetAttToolsTable97D7CA31Arn9F727AFC": "arn:aws:dynamodb:ap-south-1:302131390279:table/ToolsTable-06a9b70576ba",
+    "ToolPartsPhotosBucketName": "tool-parts-photos-06a9b70576ba",
+    "ExportsOutputRefToolsTable97D7CA3193FB2A9B": "ToolsTable-06a9b70576ba"
   },
   "AuthStack": {
-    "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:ap-south-1:302131390279:userpool/ap-south-1_jWoHZDUXZ",
-    "SpaceUserPoolId": "ap-south-1_jWoHZDUXZ",
-    "SpaceUserPoolClientId": "66519q6p8h8pal9dg2gdp1mfi",
-    "SpaceIdentityPoolId": "ap-south-1:884c9de5-759b-405b-b8c2-68e0f0eeebda"
+    "ToolsBuyerUserPoolId": "ap-south-1_Pwa7mI2nA",
+    "ToolsBuyerIdentityPoolId": "ap-south-1:43979208-eb7c-44a7-a2fd-e70e9434b8e2",
+    "ExportsOutputFnGetAttToolsBuyerUserPool6C0E1ACDArn69B4644B": "arn:aws:cognito-idp:ap-south-1:302131390279:userpool/ap-south-1_Pwa7mI2nA",
+    "ToolsBuyerUserPoolClientId": "t6japgo46fad64m8pvhudb0dh"
+  },
+  "LambdaStack": {
+    "ExportsOutputFnGetAttToolPartsLambda112215CCArn85D40E23": "arn:aws:lambda:ap-south-1:302131390279:function:LambdaStack-ToolPartsLambda112215CC-Vce1OJjGSl2B"
   },
   "ApiStack": {
-    "SpacesApiEndpoint36C4F3B6": "https://e1p2urx4rc.execute-api.ap-south-1.amazonaws.com/prod/"
+    "ToolPartsApiEndpointE431FF28": "https://99wu4w54td.execute-api.ap-south-1.amazonaws.com/prod/"
   }
 }

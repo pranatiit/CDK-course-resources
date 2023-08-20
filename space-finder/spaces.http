@@ -1,27 +1,29 @@
-@url = https://e1p2urx4rc.execute-api.ap-south-1.amazonaws.com/prod/
-@token = eyJraWQiOiJmaUY2N2hJSk1LT1hCM1hrK0JxZEZGUHU1K1VXWXZnMTZ6XC9uWStNRjlsYz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJmMWIzMmQ0YS0yMDAxLTcwNGUtNzBlNi0yYWFjN2IxMmMyYzgiLCJjb2duaXRvOmdyb3VwcyI6WyJhZG1pbnMiXSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLXNvdXRoLTEuYW1hem9uYXdzLmNvbVwvYXAtc291dGgtMV9qV29IWkRVWFoiLCJjb2duaXRvOnVzZXJuYW1lIjoiaGFyc2EiLCJvcmlnaW5fanRpIjoiZDkyMDg2ZGYtYTMzOS00MjlkLTkwNWYtNjA0ZjZkNmMyMDA4IiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6MzAyMTMxMzkwMjc5OnJvbGVcL0F1dGhTdGFjay1Db2duaXRvQWRtaW5Sb2xlNEMxMEZCQTQtMUhJWklZWkhaSEtNUyJdLCJhdWQiOiI2NjUxOXE2cDhoOHBhbDlkZzJnZHAxbWZpIiwiZXZlbnRfaWQiOiJkNzU5ZTYwNC0yOTdiLTRhYTItOGY1Zi04YWZmN2UxZWY5YjQiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTY4OTkyMDgzMSwiZXhwIjoxNjg5OTI0NDMxLCJpYXQiOjE2ODk5MjA4MzEsImp0aSI6ImJlN2Y1NzAyLTA4YjMtNDcxNC05MWVkLTFjMTdmOTliNTNkYiJ9.OMWu1jA9vR8nKbn7Oe4nxDHX5vAuNmpN7dmNGTGD81eSx-SLufDjDDk3IkvDJk55rum1ebVnhVORVPqvFJhDdIhWSo8Tu88cLIAKbBEd1Q7fGjjrusPIVEQ9L3QFWHJeAUx3H9W1jAfGcciZuwUyrPaDwzvv9elcqYVNvlTgSgnLn9o-eR1rRDiinaFuXyX5tJ5RVdICwdi7NjY-DuIU_caFg38kD-MKAw11U7bjD4QIANqxK-MYa42fwDWrUxcC9D8qaDlHy9WlR5z5b4VbGrk_EAjPrjiVVuLYcHoomuEWJapd_Kx5DfgEZt5g2gKUYHWnrvnQ-SOg_t2-Jr1Pag
-GET {{url}}/spaces
+@url = https://99wu4w54td.execute-api.ap-south-1.amazonaws.com/prod/
+@token = eyJraWQiOiJhN3VaSU9UVEVIV2NEaFdsVVByWEpwTlwvYkJPR2l3RmFmVjByWTZTU2xBND0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhMWEzMGRjYS1hMDAxLTcwZGMtZjc1Yy1iOWI2ODY0MDQyYzEiLCJjb2duaXRvOmdyb3VwcyI6WyJhZG1pbnMiXSwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtc291dGgtMS5hbWF6b25hd3MuY29tXC9hcC1zb3V0aC0xX1B3YTdtSTJuQSIsInBob25lX251bWJlcl92ZXJpZmllZCI6ZmFsc2UsImNvZ25pdG86dXNlcm5hbWUiOiJhMWEzMGRjYS1hMDAxLTcwZGMtZjc1Yy1iOWI2ODY0MDQyYzEiLCJvcmlnaW5fanRpIjoiYTM2NTk3MjItNzJkNi00NjhmLWI3MjAtYWU4ZWUwMTk2ZDVhIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6MzAyMTMxMzkwMjc5OnJvbGVcL0F1dGhTdGFjay1Db2duaXRvQWRtaW5Sb2xlNEMxMEZCQTQtNFBERDFDVTgwVlk4Il0sImF1ZCI6InQ2amFwZ280NmZhZDY0bThwdmh1ZGIwZGgiLCJldmVudF9pZCI6IjkyMWQ2MDUxLTRhMzQtNGFkNC1hYTYyLWRmODc3MWEwNGU5NSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjkyNTEzODg2LCJwaG9uZV9udW1iZXIiOiIrOTE5NjExNzg1NDgxIiwiZXhwIjoxNjkyNTE3NDg2LCJpYXQiOjE2OTI1MTM4ODYsImp0aSI6IjFlZTMwYmZjLTUyMzctNGY4Zi04ZmRhLWQ5OWFkZWIzMDEwZSIsImVtYWlsIjoiYXNob2suY2RtYUBnbWFpbC5jb20ifQ.Wx5FFL51nrDgfcD8H_CkfAAS-RzT9dADzsV0Vql8NMyQWVAEuO48E9k7u6GXvYuw64MUacivnImDW84KPLt8NcoFYCt7z47egPYFV_KxCoG3QaEaVoUrh6f4-lPa9SQ8qS0LEDiUBgcGKbTw7qYQ7JtVs_bPHQkmNte3tJyRZJtyUEx3L36LmFgk5D--K8z4WIWIOdYMj52QIfaDOh-hz5DKItA1Bqc1zGN8CHlFis_Lf4bXjgJPVBzfHJY9cbQubc8E-e1LQcBQsz8Tsx26KUZz3S-HAv8IZm_4Yo4s9gWt862cb8yoWLjWNytzXg0hf8CNZffFqZstJfILZUFSXA
+GET {{url}}/toolparts
 Authorization: {{token}}
 ###
 
-POST {{url}}/spaces
+POST {{url}}/toolparts
+Authorization: {{token}}
 content-type: application/json
 
  {
-    "location": "Dublin",
-    "name": "Best location"
+    "name": "Black Rubber Oil Seal",
+    "description": "Country of Origin: Made in India | Shape: Round | Material: Rubber",
+    "photoUrl": "https://5.imimg.com/data5/SELLER/Default/2021/2/BK/PN/FI/108834820/wiper-seal-500x500.jpg"
  }
 ###
 
-GET {{url}}/spaces?id=cf143202-01ab-4fcf-8686-b92ce7ea20d0
+GET {{url}}/toolparts?id=cf143202-01ab-4fcf-8686-b92ce7ea20d0
 Authorization: {{token}}
 ###
 
-DELETE {{url}}/spaces
+DELETE {{url}}/toolparts
 Authorization: {{token}}
 ###
 
-PUT {{url}}/spaces?id=cf143202-01ab-4fcf-8686-b92ce7ea20d0
+PUT {{url}}/toolparts?id=cf143202-01ab-4fcf-8686-b92ce7ea20d0
 Authorization: {{token}}
 content-type: application/json
 

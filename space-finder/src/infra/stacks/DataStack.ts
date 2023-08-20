@@ -16,8 +16,8 @@ export class DataStack extends Stack {
 
         const suffix = getSuffixFromStack(this);
 
-        this.photosBucket = new Bucket(this, 'SpaceFinderPhotos', {
-            bucketName: `space-finder-photos-${suffix}`,
+        this.photosBucket = new Bucket(this, 'ToolPartsPhotos', {
+            bucketName: `tool-parts-photos-${suffix}`,
             cors: [{
                 allowedMethods: [
                     HttpMethods.HEAD,
@@ -36,17 +36,17 @@ export class DataStack extends Stack {
                 restrictPublicBuckets: false
             }
         });
-        new CfnOutput(this, 'SpaceFinderPhotosBucketName', {
+        new CfnOutput(this, 'ToolPartsPhotosBucketName', {
             value: this.photosBucket.bucketName
         });
 
 
-        this.spacesTable = new Table(this, 'SpacesTable', {
+        this.spacesTable = new Table(this, 'ToolsTable', {
             partitionKey : {
                 name: 'id',
                 type: AttributeType.STRING
             },
-            tableName: `SpaceTable-${suffix}`
+            tableName: `ToolsTable-${suffix}`
         })
     }
 }

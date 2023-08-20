@@ -30,20 +30,21 @@ export class AuthStack extends Stack {
     }
 
     private createUserPool(){
-        this.userPool = new UserPool(this, 'SpaceUserPool', {
+        this.userPool = new UserPool(this, 'ToolsBuyerUserPool', {
             selfSignUpEnabled: true,
             signInAliases: {
-                username: true,
-                email: true
+                /*username: true,*/
+                email: true,
+                phone: true
             }
         });
 
-        new CfnOutput(this, 'SpaceUserPoolId', {
+        new CfnOutput(this, 'ToolsBuyerUserPoolId', {
             value: this.userPool.userPoolId
         })
     }
     private createUserPoolClient(){
-        this.userPoolClient = this.userPool.addClient('SpaceUserPoolClient', {
+        this.userPoolClient = this.userPool.addClient('ToolsBuyerUserPoolClient', {
             authFlows: {
                 adminUserPassword: true,
                 custom: true,
@@ -51,13 +52,13 @@ export class AuthStack extends Stack {
                 userSrp: true
             }
         });
-        new CfnOutput(this, 'SpaceUserPoolClientId', {
+        new CfnOutput(this, 'ToolsBuyerUserPoolClientId', {
             value: this.userPoolClient.userPoolClientId
         })
     }
 
     private createAdminsGroup(){
-        new CfnUserPoolGroup(this, 'SpaceAdmins', {
+        new CfnUserPoolGroup(this, 'ProductAdmins', {
             userPoolId: this.userPool.userPoolId,
             groupName: 'admins',
             roleArn: this.adminRole.roleArn
@@ -65,14 +66,14 @@ export class AuthStack extends Stack {
     }
 
     private createIdentityPool(){
-        this.identityPool = new CfnIdentityPool(this, 'SpaceIdentityPool', {
+        this.identityPool = new CfnIdentityPool(this, 'ToolsBuyerIdentityPool', {
             allowUnauthenticatedIdentities: true,
             cognitoIdentityProviders: [{
                 clientId: this.userPoolClient.userPoolClientId,
                 providerName: this.userPool.userPoolProviderName
             }]
         })
-        new CfnOutput(this, 'SpaceIdentityPoolId', {
+        new CfnOutput(this, 'ToolsBuyerIdentityPoolId', {
             value: this.identityPool.ref
         })
     }

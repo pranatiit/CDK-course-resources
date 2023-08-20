@@ -1,4 +1,4 @@
-import { SpaceEntry } from "../model/Model";
+import { ToolsItemEntry } from "../model/Model";
 
 export class MissingFieldError extends Error {
     constructor(missingField: string) {
@@ -9,14 +9,11 @@ export class MissingFieldError extends Error {
 
 export class JsonError extends Error {}
 
-export function validateAsSpaceEntry(arg: any){
-    if ((arg as SpaceEntry).location == undefined) {
-        throw new MissingFieldError('location')
-    }
-    if ((arg as SpaceEntry).name == undefined) {
+export function validateAsToolsItemEntry(arg: any){
+    if ((arg as ToolsItemEntry).name == undefined) {
         throw new MissingFieldError('name')
     }
-    if ((arg as SpaceEntry).id == undefined) {
+    if ((arg as ToolsItemEntry).id == undefined) {
         throw new MissingFieldError('id')
     }
 }

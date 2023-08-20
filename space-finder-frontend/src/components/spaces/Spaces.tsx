@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SpaceComponent from "./SpaceComponent";
 import { DataService } from "../../services/DataService";
 import { NavLink } from "react-router-dom";
-import { SpaceEntry } from "../model/model";
+import { ToolsItemEntry } from "../model/model";
 
 interface SpacesProps {
     dataService: DataService
@@ -10,7 +10,7 @@ interface SpacesProps {
 
 export default function Spaces(props: SpacesProps){
 
-    const [spaces, setSpaces] = useState<SpaceEntry[]>();
+    const [spaces, setSpaces] = useState<ToolsItemEntry[]>();
     const [reservationText, setReservationText] = useState<string>();
 
     useEffect(()=>{
@@ -33,14 +33,14 @@ export default function Spaces(props: SpacesProps){
         }
         const rows: any[] = [];
         if(spaces) {
-            for(const spaceEntry of spaces) {
+            for(const ToolsItemEntry of spaces) {
                 rows.push(
                     <SpaceComponent 
-                        key={spaceEntry.id}
-                        id={spaceEntry.id}
-                        location={spaceEntry.location}
-                        name={spaceEntry.name}
-                        photoUrl={spaceEntry.photoUrl}
+                        key={ToolsItemEntry.id}
+                        id={ToolsItemEntry.id}
+                        location={ToolsItemEntry.location}
+                        name={ToolsItemEntry.name}
+                        photoUrl={ToolsItemEntry.photoUrl}
                         reserveSpace={reserveSpace}
                     />
                 )

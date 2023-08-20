@@ -14,9 +14,9 @@ export class ApiStack extends Stack {
     constructor(scope: Construct, id: string, props: ApiStackProps) {
         super(scope, id, props);
 
-        const api = new RestApi(this, 'SpacesApi');
+        const api = new RestApi(this, 'ToolPartsApi');
 
-        const authorizer = new CognitoUserPoolsAuthorizer(this, 'SpacesApiAuthorizer', {
+        const authorizer = new CognitoUserPoolsAuthorizer(this, 'ToolPartsApiAuthorizer', {
             cognitoUserPools:[props.userPool],
             identitySource: 'method.request.header.Authorization'
         });
@@ -36,7 +36,7 @@ export class ApiStack extends Stack {
             }
         }
 
-        const spacesResource = api.root.addResource('spaces', optionsWithCors);
+        const spacesResource = api.root.addResource('toolparts', optionsWithCors);
         spacesResource.addMethod('GET', props.spacesLambdaIntegration, optionsWithAuth);
         spacesResource.addMethod('POST', props.spacesLambdaIntegration,optionsWithAuth);
         spacesResource.addMethod('PUT', props.spacesLambdaIntegration, optionsWithAuth);

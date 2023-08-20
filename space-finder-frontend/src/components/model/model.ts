@@ -1,4 +1,4 @@
-export interface SpaceEntry {
+export interface ToolsItemEntry {
     id: string,
     location: string,
     name: string,

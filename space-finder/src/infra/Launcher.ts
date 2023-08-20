@@ -22,8 +22,8 @@ new ApiStack(app, 'ApiStack', {
     spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
     userPool: authStack.userPool
 });
-//new UiDeploymentStack(app, 'UiDeploymentStack');
-//new UiAngularStack(app, 'UiAngularStack');
-new UiBikePartsStack(app, 'UiBikePartsStack');
+/*new UiDeploymentStack(app, 'UiDeploymentStack');
+//new UiAngularStack(app, 'UiAngularStack');*/
+//new UiBikePartsStack(app, 'UiBikePartsStack');
 
 //new MonitorStack(app, 'MonitorStack')

@@ -1,8 +1,8 @@
 import genericImage from "../../assets/generic-photo.jpg";
-import { SpaceEntry } from "../model/model";
+import { ToolsItemEntry } from "../model/model";
 import './SpaceComponent.css';
 
-interface SpaceComponentProps extends SpaceEntry {
+interface SpaceComponentProps extends ToolsItemEntry {
   reserveSpace: (spaceId: string, spaceName: string) => void;
 }
 

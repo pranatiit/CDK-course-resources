@@ -17,7 +17,7 @@ export class UiDeploymentStack extends Stack {
         const suffix = getSuffixFromStack(this);
 
         const deploymentBucket = new Bucket(this, 'uiDeploymentBucket', {
-            bucketName: `space-finder-frontend-${suffix}`
+            bucketName: `tool-parts-frontend-${suffix}`
         });
 
         const uiDir = join(__dirname, '..', '..', '..', '..', 'space-finder-frontend', 'dist');
@@ -26,7 +26,7 @@ export class UiDeploymentStack extends Stack {
             return;
         }
 
-        new BucketDeployment(this, 'SpacesFinderDeployment', {
+        new BucketDeployment(this, 'ToolPartsDeployment', {
             destinationBucket: deploymentBucket,
             sources: [Source.asset(uiDir)]
         });
@@ -34,7 +34,7 @@ export class UiDeploymentStack extends Stack {
         const originIdentity = new OriginAccessIdentity(this, 'OriginAccessIdentity');
         deploymentBucket.grantRead(originIdentity);
 
-        const distribution = new Distribution(this, 'SpacesFinderDistribution', {
+        const distribution = new Distribution(this, 'ToolPartsDistribution', {
             defaultRootObject: 'index.html',
             defaultBehavior: {
                 origin: new S3Origin(deploymentBucket, {
