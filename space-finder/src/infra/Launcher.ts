@@ -7,6 +7,8 @@ import { UiDeploymentStack } from "./stacks/UiDeploymentStack";
 import { UiAngularStack } from "./stacks/UiAngularStack";
 import { MonitorStack } from "./stacks/MonitorStack";
 import { UiBikePartsStack } from "./stacks/UiBikePartsStack";
+import { CustDataStack } from "./cust-stacks/CustDataStack";
+import { CustLambdaStack } from "./cust-stacks/CustLambdaStack";
 
 
 
@@ -18,12 +20,22 @@ const lambdaStack = new LambdaStack(app, 'LambdaStack', {
 const authStack = new AuthStack(app, 'AuthStack', {
     photosBucket: dataStack.photosBucket
 });
+
+// below stacks for User creation infra
+const custDataStack = new CustDataStack(app, 'CustDataStack');
+const custLambdaStack = new CustLambdaStack(app, 'CustLambdaStack', {
+    customerTable: custDataStack.spacesTable
+});
+
+
 new ApiStack(app, 'ApiStack', {
     spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
+    custLambdaIntegration: custLambdaStack.custLambdaIntegration,
     userPool: authStack.userPool
 });
+
 /*new UiDeploymentStack(app, 'UiDeploymentStack');
 //new UiAngularStack(app, 'UiAngularStack');*/
-new UiBikePartsStack(app, 'UiBikePartsStack');
+//new UiBikePartsStack(app, 'UiBikePartsStack');
 
 //new MonitorStack(app, 'MonitorStack')
