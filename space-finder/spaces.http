@@ -35,9 +35,10 @@ content-type: application/json
 POST {{url}}/customer
 Authorization: {{token}}
 content-type: application/json
- {"name":"ashok.cdma@gmail.com","emailId":"ashok.cdma@gmail.com","mobileNo":"","description":"aasssssa"}
+
+{"id":"1407a990-c7e2-49d9-9d90-1d7aa676d87f", "name":"Ashok","emailId":"ashok.cdma@gmail.com","mobileNo":"","description":"aasssssa"}
 ###
 
-GET {{url}}/customer?name=Test
+GET {{url}}/customer?id=1407a990-c7e2-49d9-9d90-1d7aa676d87f
 Authorization: {{token}}
 ###

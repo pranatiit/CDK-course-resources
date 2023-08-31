@@ -17,14 +17,17 @@ const dataStack = new DataStack(app, 'DataStack');
 const lambdaStack = new LambdaStack(app, 'LambdaStack', {
     spacesTable: dataStack.spacesTable
 });
-const authStack = new AuthStack(app, 'AuthStack', {
-    photosBucket: dataStack.photosBucket
-});
 
 // below stacks for User creation infra
 const custDataStack = new CustDataStack(app, 'CustDataStack');
 const custLambdaStack = new CustLambdaStack(app, 'CustLambdaStack', {
     customerTable: custDataStack.spacesTable
+});
+
+
+const authStack = new AuthStack(app, 'AuthStack', {
+    photosBucket: dataStack.photosBucket,
+    profilePicBucket: custDataStack.photosBucket
 });
 
 

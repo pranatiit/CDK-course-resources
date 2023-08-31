@@ -1,23 +1,29 @@
 {
-    "DataStack": {
-      "ExportsOutputFnGetAttToolPartsPhotosAC824DF9Arn09A8ADF0": "arn:aws:s3:::tool-parts-photos-06a9b70576ba",
-      "ExportsOutputFnGetAttToolsTable97D7CA31Arn9F727AFC": "arn:aws:dynamodb:ap-south-1:302131390279:table/ToolsTable-06a9b70576ba",
-      "ToolPartsPhotosBucketName": "tool-parts-photos-06a9b70576ba",
-      "ExportsOutputRefToolsTable97D7CA3193FB2A9B": "ToolsTable-06a9b70576ba"
-    },
-    "AuthStack": {
-      "ToolsBuyerUserPoolId": "ap-south-1_Pwa7mI2nA",
-      "ToolsBuyerIdentityPoolId": "ap-south-1:43979208-eb7c-44a7-a2fd-e70e9434b8e2",
-      "ExportsOutputFnGetAttToolsBuyerUserPool6C0E1ACDArn69B4644B": "arn:aws:cognito-idp:ap-south-1:302131390279:userpool/ap-south-1_Pwa7mI2nA",
-      "ToolsBuyerUserPoolClientId": "t6japgo46fad64m8pvhudb0dh"
-    },
-    "LambdaStack": {
-      "ExportsOutputFnGetAttToolPartsLambda112215CCArn85D40E23": "arn:aws:lambda:ap-south-1:302131390279:function:LambdaStack-ToolPartsLambda112215CC-Vce1OJjGSl2B"
-    },
-    "ApiStack": {
-      "ToolPartsApiEndpointE431FF28": "https://99wu4w54td.execute-api.ap-south-1.amazonaws.com/prod/"
-    }
+  "DataStack": {
+    "ExportsOutputFnGetAttToolPartsPhotosAC824DF9Arn09A8ADF0": "arn:aws:s3:::tool-parts-photos-06a9b70576ba",
+    "ExportsOutputFnGetAttToolsTable97D7CA31Arn9F727AFC": "arn:aws:dynamodb:ap-south-1:302131390279:table/ToolsTable-06a9b70576ba",
+    "ToolPartsPhotosBucketName": "tool-parts-photos-06a9b70576ba",
+    "ExportsOutputRefToolsTable97D7CA3193FB2A9B": "ToolsTable-06a9b70576ba"
+  },
+  "CustDataStack": {
+    "ExportsOutputFnGetAttCustomers6955EA0AArn1F8E5E50": "arn:aws:dynamodb:ap-south-1:302131390279:table/Customers-0a88db0f99d6",
+    "ExportsOutputFnGetAttCustomerPhotos5B977CC8Arn0BFCC82F": "arn:aws:s3:::customer-photos-0a88db0f99d6",
+    "ExportsOutputRefCustomers6955EA0A642DDC6E": "Customers-0a88db0f99d6",
+    "CustomerPhotosBucketName": "customer-photos-0a88db0f99d6"
+  },
+  "LambdaStack": {
+    "ExportsOutputFnGetAttToolPartsLambda112215CCArn85D40E23": "arn:aws:lambda:ap-south-1:302131390279:function:LambdaStack-ToolPartsLambda112215CC-Vce1OJjGSl2B"
+  },
+  "CustLambdaStack": {
+    "ExportsOutputFnGetAttCustLambda602B04ACArn4F0DD630": "arn:aws:lambda:ap-south-1:302131390279:function:CustLambdaStack-CustLambda602B04AC-bsYm9HMMoKWI"
+  },
+  "AuthStack": {
+    "ToolsBuyerUserPoolId": "ap-south-1_Pwa7mI2nA",
+    "ToolsBuyerIdentityPoolId": "ap-south-1:43979208-eb7c-44a7-a2fd-e70e9434b8e2",
+    "ExportsOutputFnGetAttToolsBuyerUserPool6C0E1ACDArn69B4644B": "arn:aws:cognito-idp:ap-south-1:302131390279:userpool/ap-south-1_Pwa7mI2nA",
+    "ToolsBuyerUserPoolClientId": "t6japgo46fad64m8pvhudb0dh"
+  },
+  "ApiStack": {
+    "ToolPartsApiEndpointE431FF28": "https://99wu4w54td.execute-api.ap-south-1.amazonaws.com/prod/"
   }
-  
-  
-  
+}
