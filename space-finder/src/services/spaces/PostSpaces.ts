@@ -17,6 +17,6 @@ export async function postSpaces(event: APIGatewayProxyEvent, ddbClient: DynamoD
 
     return {
         statusCode: 201,
-        body: JSON.stringify({message: 'SUCCESS'})
+        body: event.body
     }
 }
