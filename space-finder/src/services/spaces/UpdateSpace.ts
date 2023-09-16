@@ -32,7 +32,7 @@ export async function updateSpace(event: APIGatewayProxyEvent, ddbClient: Dynamo
 
         return {
             statusCode: 204,
-            body: JSON.stringify(updateResult.Attributes)
+            body: event.body
         }
 
     }

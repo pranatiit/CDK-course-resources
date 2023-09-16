@@ -18,3 +18,10 @@ export interface ToolsItemEntry {
     maxDiscountPercent?: string;
     wareHouseId?: string;
 }
+
+
+export interface OrderEntry {
+    id: string,
+    customerId: string,
+    items: string
+}

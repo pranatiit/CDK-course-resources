@@ -9,6 +9,8 @@ import { MonitorStack } from "./stacks/MonitorStack";
 import { UiBikePartsStack } from "./stacks/UiBikePartsStack";
 import { CustDataStack } from "./cust-stacks/CustDataStack";
 import { CustLambdaStack } from "./cust-stacks/CustLambdaStack";
+import { OrderDataStack } from "./order-stacks/OrderDataStack";
+import { OrderLambdaStack } from "./order-stacks/OrderLambdaStack";
 
 
 
@@ -25,6 +27,12 @@ const custLambdaStack = new CustLambdaStack(app, 'CustLambdaStack', {
 });
 
 
+// below stacks for order creation infra
+const orderDataStack = new OrderDataStack(app, 'OrderDataStack');
+const orderLambdaStack = new OrderLambdaStack(app, 'OrderLambdaStack', {
+    orderTable: orderDataStack.orderTable
+});
+
 const authStack = new AuthStack(app, 'AuthStack', {
     photosBucket: dataStack.photosBucket,
     profilePicBucket: custDataStack.photosBucket
@@ -34,6 +42,7 @@ const authStack = new AuthStack(app, 'AuthStack', {
 new ApiStack(app, 'ApiStack', {
     spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
     custLambdaIntegration: custLambdaStack.custLambdaIntegration,
+    orderLambdaIntegration: orderLambdaStack.orderLambdaIntegration,
     userPool: authStack.userPool
 });
 

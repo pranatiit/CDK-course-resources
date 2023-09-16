@@ -11,6 +11,10 @@
     "ExportsOutputRefCustomers6955EA0A642DDC6E": "Customers-0a88db0f99d6",
     "CustomerPhotosBucketName": "customer-photos-0a88db0f99d6"
   },
+  "OrderDataStack": {
+    "ExportsOutputFnGetAttOrdersA9B65338Arn17F87B9C": "arn:aws:dynamodb:ap-south-1:302131390279:table/Orders-0aaa87a705bc",
+    "ExportsOutputRefOrdersA9B6533847015BBC": "Orders-0aaa87a705bc"
+  },
   "LambdaStack": {
     "ExportsOutputFnGetAttToolPartsLambda112215CCArn85D40E23": "arn:aws:lambda:ap-south-1:302131390279:function:LambdaStack-ToolPartsLambda112215CC-Vce1OJjGSl2B"
   },
@@ -22,6 +26,9 @@
     "ToolsBuyerIdentityPoolId": "ap-south-1:43979208-eb7c-44a7-a2fd-e70e9434b8e2",
     "ExportsOutputFnGetAttToolsBuyerUserPool6C0E1ACDArn69B4644B": "arn:aws:cognito-idp:ap-south-1:302131390279:userpool/ap-south-1_Pwa7mI2nA",
     "ToolsBuyerUserPoolClientId": "t6japgo46fad64m8pvhudb0dh"
+  },
+  "OrderLambdaStack": {
+    "ExportsOutputFnGetAttOrderLambda008D7AE5Arn8D73BF12": "arn:aws:lambda:ap-south-1:302131390279:function:OrderLambdaStack-OrderLambda008D7AE5-K5FDwMNePobc"
   },
   "ApiStack": {
     "ToolPartsApiEndpointE431FF28": "https://99wu4w54td.execute-api.ap-south-1.amazonaws.com/prod/"

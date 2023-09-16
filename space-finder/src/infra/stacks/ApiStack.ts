@@ -7,6 +7,7 @@ import { Construct } from 'constructs';
 interface ApiStackProps extends StackProps {
     spacesLambdaIntegration: LambdaIntegration,
     custLambdaIntegration: LambdaIntegration,
+    orderLambdaIntegration: LambdaIntegration,
     userPool: IUserPool;
 }
 
@@ -49,6 +50,13 @@ export class ApiStack extends Stack {
         custResource.addMethod('POST', props.custLambdaIntegration,optionsWithAuth);
         custResource.addMethod('PUT', props.custLambdaIntegration, optionsWithAuth);
         custResource.addMethod('DELETE', props.custLambdaIntegration, optionsWithAuth);
+
+        const orderResource = api.root.addResource('orders', optionsWithCors);
+        orderResource.addMethod('GET', props.orderLambdaIntegration, optionsWithAuth);
+        orderResource.addMethod('POST', props.orderLambdaIntegration,optionsWithAuth);
+        orderResource.addMethod('PUT', props.orderLambdaIntegration, optionsWithAuth);
+        orderResource.addMethod('DELETE', props.orderLambdaIntegration, optionsWithAuth);
+
 
     }
 }
