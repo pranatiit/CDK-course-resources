@@ -3,6 +3,7 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { validateAsOrderItemEntry, validateAsToolsItemEntry } from "../shared/Validator";
 import { marshall } from "@aws-sdk/util-dynamodb";
 import { createRandomId, parseJSON } from "../shared/Utils";
+import { sendEmail} from "./SendOrderEmail";
 
 export async function createNewOrder(event: APIGatewayProxyEvent, ddbClient: DynamoDBClient): Promise<APIGatewayProxyResult> {
 
@@ -16,6 +17,17 @@ export async function createNewOrder(event: APIGatewayProxyEvent, ddbClient: Dyn
         TableName: process.env.TABLE_NAME,
         Item: marshall(item)
     }));
+
+    if(result){
+        //send email
+        let contact = {
+            name: 'Hi',
+            email: 'pranati.sahoo@outlook.com',
+            message: 'Your order has been placed.'
+        }
+
+        const sendStatus = await sendEmail(contact);
+    }
 
     let response : any = {
         orderId : item.id,

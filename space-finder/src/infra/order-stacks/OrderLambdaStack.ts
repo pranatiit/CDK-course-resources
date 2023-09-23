@@ -6,6 +6,7 @@ import { Runtime, Tracing} from 'aws-cdk-lib/aws-lambda';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
 import { join } from 'path';
+import { AWS_REGION } from '../../../env';
 
 
 interface OrderLambdaStackProps extends StackProps {
@@ -42,6 +43,24 @@ export class OrderLambdaStack extends Stack {
                 'dynamodb:DeleteItem'
             ]
         }))
+
+        
+
+        orderLambda.addToRolePolicy(
+            new PolicyStatement({
+              effect: Effect.ALLOW,
+              actions: [
+                'ses:SendEmail',
+                'ses:SendRawEmail',
+                'ses:SendTemplatedEmail'
+              ],
+              resources: [
+                `arn:aws:ses:${AWS_REGION}:${
+                  Stack.of(this).account
+                }:identity/*`
+              ]
+            })
+          );
 
         this.orderLambdaIntegration = new LambdaIntegration(orderLambda)
 
