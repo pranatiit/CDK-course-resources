@@ -1,5 +1,5 @@
 import { Stack, StackProps } from 'aws-cdk-lib'
-import { AuthorizationType, CognitoUserPoolsAuthorizer, Cors, LambdaIntegration, MethodOptions, ResourceOptions, RestApi } from 'aws-cdk-lib/aws-apigateway';
+import { AuthorizationType, AwsIntegration, CognitoUserPoolsAuthorizer, Cors, JsonSchemaType, LambdaIntegration, MethodOptions, ResourceOptions, RestApi } from 'aws-cdk-lib/aws-apigateway';
 import { IUserPool } from 'aws-cdk-lib/aws-cognito';
 import { AuthorizationToken } from 'aws-cdk-lib/aws-ecr';
 import { Construct } from 'constructs';
@@ -8,6 +8,7 @@ interface ApiStackProps extends StackProps {
     spacesLambdaIntegration: LambdaIntegration,
     custLambdaIntegration: LambdaIntegration,
     orderLambdaIntegration: LambdaIntegration,
+    orderSQSIntegration: AwsIntegration
     userPool: IUserPool;
 }
 
@@ -57,6 +58,39 @@ export class ApiStack extends Stack {
         orderResource.addMethod('PUT', props.orderLambdaIntegration, optionsWithAuth);
         orderResource.addMethod('DELETE', props.orderLambdaIntegration, optionsWithAuth);
 
+        const inputModel = api.addModel('InputModel', {
+            contentType: 'application/json',
+            schema: {
+              type: JsonSchemaType.OBJECT,
+              properties: {
+                version: { type: JsonSchemaType.STRING, enum: [ "1.0.0" ] },
+                name: { type: JsonSchemaType.STRING },
+                email: { type: JsonSchemaType.STRING, pattern: "^\\S+@\\S+\\.\\S+$" }
+              },
+              required: ["body", "name", "email"],
+              additionalProperties: false
+            }
+          })
+
+        const optionsWithEmailAuth: MethodOptions = {
+            requestModels: { 'application/json': inputModel },
+            requestValidatorOptions: { validateRequestBody: true },
+            authorizationType: AuthorizationType.COGNITO,
+            authorizer: {
+                authorizerId: authorizer.authorizerId
+            }
+        }
+
+        const optionsWithAuthSQS: MethodOptions = {
+            methodResponses: [ { statusCode: '200'}, { statusCode: '500'} ],
+            authorizationType: AuthorizationType.COGNITO,
+            authorizer: {
+                authorizerId: authorizer.authorizerId
+            }
+        }
+        
+        const emailResource = api.root.addResource('orderemail', optionsWithCors);
+        emailResource.addMethod('POST', props.orderSQSIntegration, optionsWithAuthSQS);
 
     }
 }

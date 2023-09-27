@@ -1,8 +1,8 @@
 import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
-import { validateAsOrderItemEntry, validateAsToolsItemEntry } from "../shared/Validator";
+import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from "aws-lambda";
+import { JsonError, MissingFieldError, validateAsOrderItemEntry, validateAsToolsItemEntry } from "../shared/Validator";
 import { marshall } from "@aws-sdk/util-dynamodb";
-import { createRandomId, parseJSON } from "../shared/Utils";
+import { addCorsHeader, createRandomId, parseJSON } from "../shared/Utils";
 import { SES } from "aws-sdk";
 import { AWS_REGION, SES_EMAIL_FROM } from "../../../env";
 
@@ -12,20 +12,37 @@ export type ContactDetails = {
     message: string;
   };
 
+
+export async function sendSQSEmail(event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> {
+
+  console.log('event 👉', JSON.stringify(event.body));
+
+  const item = parseJSON(JSON.stringify(event.body));
+  //send email
+  let contact = {
+    name: item.name,
+    email: item.email,
+    message: 'Your order has been placed: ' + item.body
+}
+
+  return await sendEmail(contact);
+}
+
   export async function  sendEmail({
     name,
     email,
     message,
   }: ContactDetails): Promise<APIGatewayProxyResult> {
     const ses = new SES({region: AWS_REGION});
-    await ses.sendEmail(sendEmailParams({name, email, message})).promise();
+    let resp = await ses.sendEmail(sendEmailParams({name, email, message})).promise();
+    console.log('sendEmail Response: 🎉', JSON.stringify(resp));
     return {
         statusCode: 201,
         body: `{message: 'Email sent successfully 🎉🎉🎉'}`
     }
   }
   
-  function sendEmailParams({name, email, message}: ContactDetails) {
+  export function sendEmailParams({name, email, message}: ContactDetails) {
     return {
       Destination: {
         ToAddresses: [email],
@@ -75,3 +92,4 @@ export type ContactDetails = {
       ${message}
     `;
   }
+

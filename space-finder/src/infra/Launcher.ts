@@ -11,6 +11,7 @@ import { CustDataStack } from "./cust-stacks/CustDataStack";
 import { CustLambdaStack } from "./cust-stacks/CustLambdaStack";
 import { OrderDataStack } from "./order-stacks/OrderDataStack";
 import { OrderLambdaStack } from "./order-stacks/OrderLambdaStack";
+import { SQSToLambdaStack } from "./order-stacks/SQSToLambdaStack";
 
 
 
@@ -33,6 +34,8 @@ const orderLambdaStack = new OrderLambdaStack(app, 'OrderLambdaStack', {
     orderTable: orderDataStack.orderTable
 });
 
+const orderEmailSQSStack = new SQSToLambdaStack(app, 'orderSQSToLambdaStack');
+
 const authStack = new AuthStack(app, 'AuthStack', {
     photosBucket: dataStack.photosBucket,
     profilePicBucket: custDataStack.photosBucket
@@ -43,6 +46,7 @@ new ApiStack(app, 'ApiStack', {
     spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
     custLambdaIntegration: custLambdaStack.custLambdaIntegration,
     orderLambdaIntegration: orderLambdaStack.orderLambdaIntegration,
+    orderSQSIntegration: orderEmailSQSStack.orderEmailIntegration,
     userPool: authStack.userPool
 });
 

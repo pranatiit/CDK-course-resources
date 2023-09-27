@@ -30,6 +30,14 @@
   "OrderLambdaStack": {
     "ExportsOutputFnGetAttOrderLambda008D7AE5Arn8D73BF12": "arn:aws:lambda:ap-south-1:302131390279:function:OrderLambdaStack-OrderLambda008D7AE5-K5FDwMNePobc"
   },
+  "orderSQSToLambdaStack": {
+    "SQSqueueName": "orderSQSToLambdaStack-OrderEmailSqsQueue6BE9D6B7-JqeHyLp2epg4",
+    "ExportsOutputFnGetAttApiRole1873F438ArnACB9C323": "arn:aws:iam::302131390279:role/orderSQSToLambdaStack-ApiRole1873F438-11R260ZYZZQNE",
+    "ExportsOutputFnGetAttOrderEmailSqsQueue6BE9D6B7QueueName12712890": "orderSQSToLambdaStack-OrderEmailSqsQueue6BE9D6B7-JqeHyLp2epg4",
+    "QueueConsumerFunctionName": "orderSQSToLambdaStack-OrderEmailLambda2940EC18-Xgg6s4eh6EV2",
+    "SQSqueueARN": "arn:aws:sqs:ap-south-1:302131390279:orderSQSToLambdaStack-OrderEmailSqsQueue6BE9D6B7-JqeHyLp2epg4",
+    "SQSqueueURL": "https://sqs.ap-south-1.amazonaws.com/302131390279/orderSQSToLambdaStack-OrderEmailSqsQueue6BE9D6B7-JqeHyLp2epg4"
+  },
   "ApiStack": {
     "ToolPartsApiEndpointE431FF28": "https://99wu4w54td.execute-api.ap-south-1.amazonaws.com/prod/"
   }
